@@ -57,9 +57,9 @@ sed -i "s#8072#${PORT8072}#g" "$DESTINATION/etc/odoo.conf"
 
 # تنزيل enterprise
 if git ls-remote git@github.com:mahmoudhashemm/odoo19pro >/dev/null 2>&1; then
-  git clone --depth 1 --branch master git@github.com:mahmoudhashemm/odoo19pro "$DESTINATION/enterprise"
+  git clone --depth 1 --branch main git@github.com:mahmoudhashemm/odoo19pro "$DESTINATION/enterprise"
 else
-  git clone --depth 1 --branch master https://github.com/mahmoudhashemm/odoo19pro "$DESTINATION/enterprise" || true
+  git clone --depth 1 --branch main https://github.com/mahmoudhashemm/odoo19pro "$DESTINATION/enterprise" || true
 fi
 
 # طباعة yml بعد التعديلات
