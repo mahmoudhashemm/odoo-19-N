@@ -18,7 +18,7 @@ services:
         ipv4_address: 172.28.10.3
 
   odoo17:
-    image: odoo:19.0
+    image: odoo-19:final
     user: root
     depends_on:
       - db
