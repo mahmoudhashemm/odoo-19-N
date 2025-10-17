@@ -18,7 +18,7 @@ services:
         ipv4_address: 172.28.10.3
 
   odoo17:
-    image: mahmoudhashemm/odoo-19:first
+    image: mahmoudhashemm/odoo-19:001
     user: root
     depends_on:
       - db
