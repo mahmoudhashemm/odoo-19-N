@@ -11,6 +11,11 @@ services:
     restart: always
     volumes:
       - ./postgresql:/var/lib/postgresql/data
+    healthcheck:                         # يتأكد إن الـDB جاهزة
+      test: ["CMD-SHELL", "pg_isready -U odoo -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
     mem_limit: 6g
     cpus: 6
     networks:
@@ -21,12 +26,13 @@ services:
     image: mahmoudhashemm/odoo-19:002
     user: root
     depends_on:
-      - db
+      db:
+        condition: service_healthy       # ينتظر جاهزية الـDB (جديد)
     ports:
       - "10019:8069"
       - "20014:8072"
     tty: true
-    command: --
+    command: ["odoo", "-c", "/etc/odoo/odoo.conf"]
     environment:
       - HOST=db
       - USER=odoo
