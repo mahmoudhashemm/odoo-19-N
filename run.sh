@@ -56,11 +56,11 @@ sed -i "s#8069#${PORT8069}#g" "$DESTINATION/etc/odoo.conf"
 sed -i "s#8072#${PORT8072}#g" "$DESTINATION/etc/odoo.conf"
 
 # تنزيل enterprise
-if git ls-remote git@github.com:mahmoudhashemm/odoo19pro >/dev/null 2>&1; then
-  git clone --depth 1 --branch main git@github.com:mahmoudhashemm/odoo19pro "$DESTINATION/enterprise"
-else
-  git clone --depth 1 --branch main https://github.com/mahmoudhashemm/odoo19pro "$DESTINATION/enterprise" || true
-fi
+#if git ls-remote git@github.com:mahmoudhashemm/odoo19pro >/dev/null 2>&1; then
+#  git clone --depth 1 --branch main git@github.com:mahmoudhashemm/odoo19pro "$DESTINATION/enterprise"
+#else
+#  git clone --depth 1 --branch main https://github.com/mahmoudhashemm/odoo19pro "$DESTINATION/enterprise" || true
+#fi
 
 # طباعة yml بعد التعديلات
 echo "===== docker-compose.yml after modifications ====="
