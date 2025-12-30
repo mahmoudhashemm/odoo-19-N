@@ -61,7 +61,20 @@ sed -i "s#8072#${PORT8072}#g" "$DESTINATION/etc/odoo.conf"
 #else
 #  git clone --depth 1 --branch main https://github.com/mahmoudhashemm/odoo19pro "$DESTINATION/enterprise" || true
 #fi
+#################################################################################################
+if git ls-remote git@github.com:odoo/enterprise.git >/dev/null 2>&1; then
+  git clone --depth 1 --branch 19.0 git@github.com:odoo/enterprise.git "$DESTINATION/enterprise"
+else
+  echo "SSH access not available — switching to HTTPS ..."
+  git clone --depth 1 --branch 19.0 https://github.com/odoo/enterprise.git "$DESTINATION/enterprise" || true
+fi
 
+
+
+
+
+
+#################################################################################################
 # طباعة yml بعد التعديلات
 echo "===== docker-compose.yml after modifications ====="
 #cat "$DESTINATION/docker-compose.yml"
