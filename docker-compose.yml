@@ -24,7 +24,7 @@ services:
 
   odoo17:
   #   image: mahmoudhashemm/odoo-19:002
-    image: mahmoudhashemm/odoo-19:003
+    image: mahmoudhashemm/odoo-19:1000
     user: root
     depends_on:
       db:
